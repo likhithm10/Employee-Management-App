@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="./resources/css/employeedashboard.css" />
+	<link rel="stylesheet" href="./resources/css/employeemenu.css" />
+	<script src="resources/js/employeemenu.js" defer="defer"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<link rel="icon" href="images/logo.png" type="image/icon" />
+	<title>Emp Power Hub</title>
+</h:head>
+
+<h:body>
+	<section id="sidebar">
+		<a href="employeedashboard.jsf" class="brand">
+			<img style="height: 52%; margin-left: 10px; margin-right: 10px;" src="images/logo.png" alt="here" />
+			<span class="text">Emp Power Hub</span>
+		</a>
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="employeedashboard.jsf">
+					<i class="bx bxs-dashboard"></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			<li>
+				<a href="employeemytask.jsf">
+					<i class="bx bxs-shopping-bag-alt"></i>
+					<span class="text">My Task</span>
+				</a>
+			</li>
+			<li>
+				<a href="employeemessages.jsf">
+					<i class="bx bxs-message-dots"></i>
+					<span class="text">Message</span>
+				</a>
+			</li>
+			<li>
+				<a href="employeeprofile.jsf">
+					<i class="bx bxs-group"></i>
+					<span class="text">Profile</span>
+				</a>
+			</li>
+		</ul>
+		<h:form>
+    <ul class="side-menu">
+      <li>
+      <h:commandLink value="" styleClass="logout" action="#{empbean.logout()}">
+       
+          <i class="bx bxs-log-out-circle"></i>
+          <span class="text">Logout</span>
+        </h:commandLink>
+      </li>
+    </ul>
+    </h:form>
+	</section>
+	<h:dataTable value="#{empbean.sessionman()}" var="emp" styleClass="full-width-table"/>
+
+	<section id="content">
+		<nav>
+			<i class="bx bx-menu"></i>
+			<form action="#">
+				<div class="form-input"></div>
+			</form>
+			<a href="employeemessages.jsf" class="notification">
+				<i class="bx bxs-bell"></i>
+				<span class="num">0</span>
+			</a>
+			<a href="employeeprofile.jsf" class="profile">
+				<img src="images/profile.png" />
+			</a>
+		</nav>
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<ul class="breadcrumb">
+						<li>
+							<a href="employeedashboard.jsf">EMS</a>
+						</li>
+						<li><i class="bx bx-chevron-right"></i></li>
+						<li>
+							<a class="active" href="employeedashboard.jsf">Home</a>
+						</li>
+					</ul>
+				</div>
+				<a href="#" class="btn-download">
+					<i class="bx bxs-cloud-download"></i>
+					<span class="text">Download Today's Task</span>
+				</a>
+			</div>
+
+			<ul class="box-info">
+				<li>
+					<i class="bx bxs-calendar-check"></i>
+					<span class="text">
+						<h3>Calendar</h3>
+						<p id="datetime"></p>
+					</span>
+				</li>
+				<li>
+					<i class="bx bxs-group"></i>
+					<span class="text">
+						<h3>Projects</h3>
+						<p>68+</p>
+					</span>
+				</li>
+				<li>
+					<i class="bx bxs-dollar-circle"></i>
+					<span class="text">
+						<h3>Earned</h3>
+						<p>₹2000</p>
+					</span>
+				</li>
+			</ul>
+
+			<div class="table-data">
+				<div>
+					<h3>Line Graph</h3>
+					<canvas id="myChart" width="500" height="350"></canvas>
+				</div>
+				<div class="todo">
+					<div class="head">
+						<h3>Todos</h3>
+						<i class="bx bx-plus"></i>
+						<i class="bx bx-filter"></i>
+					</div>
+					<ul class="todo-list">
+						<li class="completed">
+							<p>Todo List</p>
+							<i class="bx bx-dots-vertical-rounded"></i>
+						</li>
+						<li class="completed">
+							<p>Todo List</p>
+							<i class="bx bx-dots-vertical-rounded"></i>
+						</li>
+						<li class="not-completed">
+							<p>Todo List</p>
+							<i class="bx bx-dots-vertical-rounded"></i>
+						</li>
+						<li class="completed">
+							<p>Todo List</p>
+							<i class="bx bx-dots-vertical-rounded"></i>
+						</li>
+						<li class="not-completed">
+							<p>Todo List</p>
+							<i class="bx bx-dots-vertical-rounded"></i>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</main>
+	</section>
+
+	<script type="text/javascript">
+		document.addEventListener('DOMContentLoaded', function () {
+			var ctx = document.getElementById('myChart').getContext('2d');
+			var myChart = new Chart(ctx, {
+				type: 'line',
+				data: {
+					labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+					datasets: [{
+						label: 'Working Status',
+						data: [65, 59, 80, 81, 56, 55, 40, 45, 23, 34, 12, 12],
+						borderColor: 'rgba(75, 192, 192, 1)',
+						backgroundColor: 'rgba(75, 192, 192, 0.2)',
+						borderWidth: 1
+					}]
+				},
+				options: {
+					scales: {
+						y: {
+							beginAtZero: true
+						}
+					}
+				}
+			});
+		});
+	</script>
+</h:body>
+</html>

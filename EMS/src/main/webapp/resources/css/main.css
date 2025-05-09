@@ -1,0 +1,148 @@
+@charset "ISO-8859-1";
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+nav {
+  background-color: #ffffff;
+  overflow: hidden;
+  justify-content: center;
+  align-items: right;
+  width: 100%;
+}
+nav a {
+  display: inline-block;
+  padding: 15px 20px;
+  text-decoration: none;
+  color: rgb(6, 27, 98);
+  font-size: 16px;
+  float: left;
+  text-align: center;
+}
+nav a:hover {
+  background-color: #fcfcfcb5;
+}
+nav ul {
+  text-align: center;
+}
+nav li {
+  display: inline;
+  margin-right: 20px;
+}
+nav .logo {
+  margin-left: 20px;
+}
+nav .menu {
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+.button {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+input[type="number"], input[type="password"], input[type="email"], input[type="text"], input[type="date"], select, input[type="radio"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #eaeaea92;
+  box-sizing: border-box;
+}
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  font-weight: bold;
+}
+form {
+  width: 300px;
+  height: auto;
+  margin: 0 auto;
+  background-color: #ffffff81;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.37);
+  text-align: center;
+}
+input[type="submit"], input[type="reset"], .button {
+  background-color: #2f3261bd;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.form-group {
+  margin-bottom: 0px;
+  text-align: left;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+.form-group input {
+  width: calc(100% - 20px);
+  padding: 10px;
+}
+.form-actions {
+  text-align: center;
+}
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+.form-label {
+  width: 100px;
+  font-weight: bold;
+}
+.radio-group {
+  display: flex;
+  gap: 20px;
+}
+.radio-option {
+  display: flex;
+  align-items: center;
+}
+.radio-option input[type="radio"] {
+  margin-right: 5px;
+}
+td {
+  color: #000000;
+}
+cont {
+  background-color: #ffffff;
+  overflow: hidden;
+  justify-content: center;
+  align-items: right;
+  width: 100%;
+}
+.column {
+  float: left;
+  width: 33.33%;
+}
+.row {
+  content: "";
+  clear: both;
+  display: table;
+  padding-left: 300px;
+}

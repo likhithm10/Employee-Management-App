@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+    <title>EMS</title>
+    <link rel="stylesheet" href="resources/css/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/primefaces/13.0.0/themes/saga/theme.css" />
+  
+
+</h:head>
+
+<body>
+    <div>
+        <div class="logo">
+            <a href="employeelogin.jsf">
+                <img src="images/logo.jpg" alt="Logo" style="vertical-align: middle; width: 60px; height: 40px;" />
+            </a>
+        </div>
+        <div class="menu" align="right" style="color: rgb(255, 98, 0);">
+            <h1 style="display: inline;">Employee Management System</h1>
+        </div>
+    </div>
+
+    <div>
+        <img src="images/EMS POSTER.png" alt="Poster" style="vertical-align: middle; width: 100%; height: 230px;" />
+    </div>
+    <br />
+
+    <div class="row" style="width: auto;">
+        <div class="column" style="padding-right: 50px;">
+        <p align="justify" >
+                <h2>Terms and Conditions</h2>
+                Welcome to Emp Power Hub. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern Emp Power Hub's relationship with you in relation to this website. If you disagree with any part of these terms and conditions, please do not use our website.
+                <br/><br/><h4 style="color: rgb(94, 94, 227); display: inline;">Use of the Website</h4><br/>
+                The content of the pages of this website is for your general information and use only. It is subject to change without notice.
+                <br/><br/><h4 style="color: rgb(94, 94, 227); display: inline;">Privacy</h4><br/>
+                This website uses cookies to monitor browsing preferences. If you do allow cookies to be used, personal information may be stored by us for use by third parties.
+                <br/><br/><h4 style="color: rgb(94, 94, 227); display: inline;">User Conduct</h4><br/>
+                Unauthorized use of this website may give rise to a claim for damages and/or be a criminal offense.
+                <br/><br/><h4 style="color: rgb(94, 94, 227); display: inline;">Limitation of Liability</h4><br/>
+                Your use of any information or materials on this website is entirely at your own risk, for which we shall not be liable. It shall be your own responsibility to ensure that any products, services, or information available through this website meet your specific requirements.
+                <br/><br/><h4 style="color: rgb(94, 94, 227); display: inline;">Governing Law</h4><br/>
+                Your use of this website and any dispute arising out of such use of the website is subject to the laws of [Your Country/State].
+            </p>
+            <p align="justify">
+                <h4 style="color: rgb(94, 94, 227); display: inline;">What is EMS?</h4><br />
+                The Employee Management System is a powerful tool that helps businesses manage their employee data, track performance, handle payroll, and maintain compliance with ease. It is an all-in-one platform that integrates various HR functions into a single, user-friendly interface.
+            </p>
+            <p align="justify">
+                <h3 style="color: rgb(94, 94, 227); display: inline;">Our Mission</h3><br />
+                Our mission is to provide businesses with the tools they need to manage their workforce effectively, ensuring that they can focus on their core operations and drive success.<br /><br />
+                We are committed to continuous improvement and innovation, ensuring that our Employee Management System evolves to meet the changing needs of our clients.
+            </p>
+        </div>
+        
+        <div class="column" align="center" style="width: 50%">
+            <h:form styleClass="form">
+                <h2 style="color: rgb(48, 47, 47);"><u>Employee Registration</u></h2>
+                <center>
+                <h:panelGrid columns="3" cellpadding="0">
+                    <h:outputLabel for="firstname" value="First Name:" />
+                    <h:inputText id="firstname" required="true" requiredMessage="Enter First Name" value="#{empbean.firstname}" />  
+                    <h:message for="firstname" style="color:red;" />
+                    
+                    <h:outputLabel for="lastname" value="Last Name:" />
+                    <h:inputText id="lastname" required="true" requiredMessage="Enter Last Name" value="#{empbean.lastname}" />  
+                    <h:message for="lastname" style="color:red;" />
+                
+                    <h:outputLabel for="gender" value="Gender:" />
+                    <h:selectOneRadio id="gender" required="true" requiredMessage="Select Gender" value="#{empbean.gender}">
+                        <f:selectItem itemLabel="Male" itemValue="MALE" />
+                        <f:selectItem itemLabel="Female" itemValue="FEMALE" />
+                        <f:selectItem itemLabel="Others" itemValue="Others" />
+                    </h:selectOneRadio>
+                    <h:message for="gender" style="color:red;" />
+                    
+                    <h:outputLabel for="dob" value="Date of Birth:" />
+                    <h:inputText id="dob" required="true" converterMessage="Please provide date of birth in yyyy-MM-dd format" requiredMessage="Enter Date of Birth" value="#{empbean.dob}" >
+                    <f:convertDateTime pattern="yyyy-MM-dd"/> 
+                    </h:inputText>
+                    <h:message for="dob" style="color:red;" />
+                    
+                    <h:outputLabel for="fathername" value="Father's Name:" />
+                    <h:inputText id="fathername" required="true" requiredMessage="Enter Father's Name" value="#{empbean.fathername}" />  
+                    <h:message for="fathername" style="color:red;" />
+                    
+                    <h:outputLabel for="pmail" value="Personal Email:" />
+                    <h:inputText id="pmail" required="true" requiredMessage="Enter Personal Email" value="#{empbean.pmail}" />
+                    <h:message for="pmail" style="color:red;" />
+                    
+                    <h:outputLabel for="contact" value="Contact:" />
+                    <h:inputText id="contact" required="true" requiredMessage="Enter Contact" validatorMessage="Contact Number must be 10 digits" value="#{empbean.contact}" >
+                        <f:validateRegex pattern="[6789][0-9]{9}" />
+                    </h:inputText>
+                    <h:message for="contact" style="color:red;" />
+                    
+                    <h:outputLabel for="department" value="Department:" />
+                    <h:selectOneMenu id="department" required="true" requiredMessage="Select Department" value="#{empbean.department}">
+                        <f:selectItem itemLabel="--SELECT--" itemValue="" />
+                        <f:selectItem itemLabel="Technical" itemValue="TECHNICAL" />
+                        <f:selectItem itemLabel="Marketing" itemValue="MARKETING" />
+                    </h:selectOneMenu>
+                    <h:message for="department" style="color:red;" />
+                    
+                    <h:outputLabel for="address" value="Address:" />
+                    <h:inputText id="address" required="true" requiredMessage="Enter Address" value="#{empbean.address}" />  
+                    <h:message for="address" style="color:red;" />
+                    
+                </h:panelGrid>
+                <div class="form-actions">
+                    <h:commandButton id="add" value="Submit" action="#{empbean.empaddreq()}" />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                    <h:commandButton value="Clear" type="reset" styleClass="btn btn-secondary"/>
+                </div>
+                <p style="text-align: center; color: black;">
+                    Already Have Employee an account? <a href="employeelogin.jsf" class="button">Employee Login Here</a>
+                </p>
+                <p style="text-align: center; color: black;">
+                    Already Have Admin an account? <a href="adminlogin.jsf" class="button">Admin Login Here</a>
+                </p>
+                </center>
+            </h:form>
+        </div>
+        <div class="column"></div>
+    </div>
+
+    <br />
+
+    <div style="background-color: rgb(40, 99, 218); height: 150px; width: 100%;">
+        <br />
+        <p align="center" style="font-style: italic; color: aliceblue;">Empowering employees through efficient management systems creates a thriving workplace where productivity meets satisfaction.</p>  
+        <p align="center" style="font-style: italic; color: aliceblue;">In the heart of every successful business lies a well-managed team. An Employee Management System bridges the gap between efficiency and excellence.</p>
+        <p align="center" style="font-style: italic; color: aliceblue;">***EMS***</p>
+    </div>
+
+    <div>
+        <p align="center">&copy; Copyrights (c) 2024, The EMS Project Developers. All Rights Reserved</p>
+    </div>
+    
+</body>
+</html>

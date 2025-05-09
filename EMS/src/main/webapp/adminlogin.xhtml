@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+  <title>EMS</title>
+  <link rel="stylesheet" href="resources/css/main.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <h:outputLink value="employeelogin.jsf">
+        <h:graphicImage value="/images/logo.jpg" alt="Logo" style="vertical-align: middle; width: 60px; height: 40px;"/>
+      </h:outputLink>
+    </div>
+    
+    <div class="menu" align="right" style="color: rgb(255, 98, 0);">
+      <h1 style="display: inline;">Employee Management System</h1>
+    </div>
+  </nav>
+
+  <div>
+    <h:graphicImage value="/images/EMS POSTER.png" alt="Poster" style="vertical-align: middle; width: 100%; height: 230px;"/>
+  </div>
+  <br/>
+
+  <div class="row" style="width: auto;">
+    <div class="column" style="padding-right: 50px;">
+      <p align="justify">
+        Welcome to our Employee Management System (EMS), a comprehensive solution designed to streamline and optimize your organization’s HR processes.
+      </p>
+      <p align="justify">
+        <h4 style="color: rgb(94, 94, 227); display: inline;">What is EMS?</h4><br/>
+        The Employee Management System is a powerful tool that helps businesses manage their employee data, track performance, handle payroll, and maintain compliance with ease. It is an all-in-one platform that integrates various HR functions into a single, user-friendly interface.
+      </p>
+      <p align="justify">
+        <h3 style="color: rgb(94, 94, 227); display: inline;">Our Mission</h3><br/>
+        Our mission is to provide businesses with the tools they need to manage their workforce effectively, ensuring that they can focus on their core operations and drive success.
+        <br/><br/>We are committed to continuous improvement and innovation, ensuring that our Employee Management System evolves to meet the changing needs of our clients.
+      </p>
+    </div>
+
+    <div class="column" align="right">
+      <h:form class="form">
+        <h2 align="center" style="color: rgb(48, 47, 47);"><u>Admin Login</u></h2>
+        <div class="form-group">
+          <h:outputLabel for="id" value="Admin ID" style="display: inline;"/>
+          <h:inputText id="id" value="#{adminbean.id}" required="true" styleClass="form-control"/>
+        </div>
+        <br/>
+        <div class="form-group">
+          <h:outputLabel for="password" value="Password" style="display: inline;"/>
+          <h:inputSecret id="password" value="#{adminbean.password}" required="true" styleClass="form-control"/>
+        </div>
+        <br/>
+        <div class="form-actions">
+          <h:commandButton value="Login" action="#{adminbean.validateadminlogin()}" styleClass="btn btn-primary"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+          <h:commandButton value="Clear" type="reset" styleClass="btn btn-secondary"/>
+        </div>
+         <p style="text-align: center; color: black;">
+         	Already Have Employee an account? <a href="employeelogin.jsf" class="button">Employee Login Here</a>
+         </p>
+        
+      </h:form>
+    </div>
+    <div class="column"></div>
+  </div>
+
+  <br/>
+
+  <div style="background-color: rgb(40, 99, 218); height: 150px; width: 100%;"><br/>
+    <p align="center" style="font-style: italic; color: aliceblue;">Empowering employees through efficient management systems creates a thriving workplace where productivity meets satisfaction.</p>  
+    <p align="center" style="font-style: italic; color: aliceblue;">In the heart of every successful business lies a well-managed team. An Employee Management System bridges the gap between efficiency and excellence.</p>
+    <p align="center" style="font-style: italic; color: aliceblue;">***EMS***</p>
+  </div>
+
+  <div>
+    <p align="center">@Copyrights (c) 2024, The EMS Project Developers. All Rights Reserved</p>
+  </div>
+
+</body>
+</html>

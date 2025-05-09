@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+      
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./resources/css/adminpublictasks.css" />
+	<link rel="stylesheet" href="./resources/css/employeemenu.css" />
+	<script src="resources/js/employeemenu.js" defer="defer" />
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet' type='text/css' />
+    <link rel="icon" href="images/logo.png" type="image/icon type" />
+    <title>Emp Power Hub</title>
+</h:head>
+<body>
+    <section id="sidebar">
+    <a href="admindashboard.jsf" class="brand">
+      <img style="height: 52%; margin-left: 10px; margin-right: 10px;" src="images/logo.png" alt="here" />
+      <span class="text">Emp Power Hub</span>
+    </a>
+    <ul class="side-menu top">
+      <li>
+        <a href="admindashboard.jsf">
+          <i class="bx bxs-dashboard"></i>
+          <span class="text">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="adminemployeerequest.jsf">
+          <i class="bx bxs-note"></i>
+          <span class="text">Employee Request</span>
+        </a>
+      </li>
+      <li>
+        <a href="adminactiveemployee.jsf">
+          <i class="bx bxs-user"></i>
+          <span class="text">Active Employee</span>
+        </a>
+      </li>
+      <li>
+        <a href="adminexemployee.jsf">
+          <i class="bx bxs-user-voice"></i>
+          <span class="text">Former Employee</span>
+        </a>
+      </li>
+      <li class="active">
+        <a href="adminpublictasks.jsf">
+          <i class="bx bxs-shopping-bag-alt"></i>
+          <span class="text">Public Task</span>
+        </a>
+      </li>
+      <li>
+        <a href="adminpublicmessages.jsf">
+          <i class="bx bxs-message-dots"></i>
+          <span class="text">Public Message</span>
+        </a>
+      </li>
+    </ul>
+    <h:form>
+    <ul class="side-menu">
+      <li>
+      <h:commandLink value="" styleClass="logout" action="#{adminbean.logout()}">
+       
+          <i class="bx bxs-log-out-circle"></i>
+          <span class="text">Logout</span>
+        </h:commandLink>
+      </li>
+    </ul>
+    </h:form>
+  </section>
+    
+    <section id="content">
+        <nav>
+	      <i class="bx bx-menu"></i>
+	      <form action="#">
+	        <div class="form-input"></div>
+	      </form>
+	      <a href="adminpublicmessages.jsf" class="notification">
+	        <i class="bx bxs-bell"></i>
+	        <span class="num">0</span>
+	      </a>
+	      <a href="admindashboard.xhtml" class="profile">
+	        <img src="images/profile.png" alt="Profile Image" />
+	      </a>
+	    </nav>
+        <main>
+         <h:dataTable value="#{adminbean.sessionman()}" var="admin">
+            </h:dataTable>
+            <div class="head-title">
+                <div class="left">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="admindashboard.jsf">EMS</a>
+                        </li>
+                        <li><i class='bx bx-chevron-right'></i></li>
+                        <li>
+                            <a class="active" href="adminpublictasks.jsf">Tasks</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="table-data">
+                <div class="order">
+                    <div class="head">
+                        <h3>Recent</h3>
+                        <a href="adminaddtask.jsf" class="button-86" role="button">Add Task</a>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                            <th>Task Id</th>
+                                <th>Title</th>
+                                <th>Commenced</th>
+                                <th>Deadline</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <ui:repeat value="#{adminbean.tasklist}" var="task">
+            			<h:column>  
+                        <tbody>
+                            <tr>
+                            <td>#{task.taskid}</td>
+                                <td><p>#{task.taskname}</p></td>
+                                <td>#{task.startdate}</td>
+                                <td>#{task.deadline}</td>
+                               <td>
+                                        <span class="status #{task.status}"
+                                              style="background-color: #{task.status eq 'Completed' ? 'green' : (task.status eq 'Process' ? 'orange' : 'red')}">
+                                            #{task.status}
+                                        </span>
+                                    </td>
+                            </tr>
+                           
+                        </tbody>
+                        </h:column>
+                        </ui:repeat>
+                    </table>
+                </div>
+            </div>
+            
+        </main>
+    </section>
+</body>
+</html>
